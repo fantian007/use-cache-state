@@ -1,6 +1,5 @@
 {
   "name": "@sprit/use-cache-state",
-  "private": "false",
   "version": "1.0.1",
   "license": "MIT",
   "keywords": [
@@ -17,6 +16,10 @@
     "dist",
     "README.MD"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "engines": {
     "node": ">=10"
   },
