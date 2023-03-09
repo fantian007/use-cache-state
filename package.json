@@ -76,6 +76,7 @@
   },
   "dependencies": {
     "immer": "^9.0.19",
+    "localforage": "^1.10.0",
     "lodash-es": "^4.17.21"
   }
 }
