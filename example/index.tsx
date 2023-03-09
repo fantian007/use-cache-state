@@ -17,7 +17,12 @@ const App = () => {
   const ui = React.useMemo(() => {
     switch(page) {
       case 1:
-        return <Page1 />;
+        return (
+          <>
+          <Page1 />
+          <Page1 />
+          </>
+        );
       case 2:
         return <Page2 />;
       default:

@@ -1,13 +1,29 @@
 import * as React from 'react';
 import { useCacheState } from '../../../../.';
 
-const cacheKey = Symbol();
+const cacheKey = 'a1';
 
 const Page1 = () => {
-  const [a, setA] = useCacheState(cacheKey, 1);
+  const [a, setA, loading] = useCacheState(cacheKey, 12, {
+    persist: {
+      'mode': 'localforage'
+    }
+  });
+
+  console.log('__page', loading, a);
+
+  if (loading) {
+    return <span>loading....</span>;
+  }
 
   return (
-    <button onClick={() => { setA(a => a+ 1) }}>
+    <button onClick={() => {
+      setA(a => {
+        if (a) {
+          return a + 1;
+        }
+      })
+    }}>
       {a}
     </button>
   );
