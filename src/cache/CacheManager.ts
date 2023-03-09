@@ -1,6 +1,5 @@
 import isNil from 'lodash-es/isNil';
 import Cache from './Cache';
-import { logCachesSize } from './utils';
 import { CacheKey, Caches } from './interface';
 
 /**
@@ -26,9 +25,6 @@ class CacheManager {
   get(): Caches | undefined;
   get(cacheKey: CacheKey): Cache | undefined;
   get(cacheKey?: CacheKey): Caches | Cache | undefined {
-    // 日志-打印缓存数量
-    logCachesSize(this);
-
     if (!isNil(cacheKey)) {
       return this.caches.get(cacheKey);
     } else {
@@ -38,6 +34,10 @@ class CacheManager {
 
   clear() {
     this.caches = new Map();
+  }
+
+  get size () {
+    return this.caches.size;
   }
 }
 
